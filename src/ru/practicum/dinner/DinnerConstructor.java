@@ -40,22 +40,21 @@ public class DinnerConstructor {
     }
 
     //метод для генерирования одной комбинации блюд
-    private String generateCombo(String dishTypes)
-
-    {
-        ???selectedDishes = ? ? ?;
-        for (???dishType:
-    dishTypes){
-            ???availableDishes = dinnersByType. ? ? ? (dishType); //достаём из хранилища варианты блюд по типу
-        String selectedDish = ???(availableDishes); //полцчим произвольное блюдо
-        selectedDishes. ? ? ? (selectedDish); //добавим блюдо в подборку комбинацию
-    }
+    private String generateCombo(ArrayList<String> dishTypes) {
+        ArrayList<String > selectedDishes = new ArrayList<>();
+        for (String dishType: dishTypes) {
+            ArrayList<String> availableDishes = dinnersByType.get(dishType); //достаём из хранилища варианты блюд по типу
+            String selectedDish = getRandomDish(availableDishes); //получим произвольное блюдо
+            selectedDishes.add(selectedDish); //добавим блюдо в подборку комбинацию
+        }
         return selectedDishes;
     }
 
-    private String getRandomDish(???availableDishes) {
+    private String getRandomDish(ArrayList<String> availableDishes) {
         int numberOfDishesForType = availableDishes.size(); //получаем общее количество доступных блюд этого типа
         int dishIndex = random.nextInt(numberOfDishesForType); //генерируем случайное число от 0 до (кол-во блюд - 1), чтобы выбрать случайное блюдо
-        String selectedDish = availableDishes. ? ? ? (dishIndex); //выберем произвольное блюдо по индексу
+        //выберем произвольное блюдо по индексу
+
+        return availableDishes.get(dishIndex);
     }
 }
