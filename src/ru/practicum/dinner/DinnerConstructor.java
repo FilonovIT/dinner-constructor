@@ -2,13 +2,14 @@ package ru.practicum.dinner;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 
 public class DinnerConstructor {
 
-    HashMap<String, ArrayList<String>> dinnersByType = new HashMap<>(); // хранилище блюд: ключ — тип блюда (например, "Суп"),
+    final Map<String, ArrayList<String>> dinnersByType = new HashMap<>(); // хранилище блюд: ключ — тип блюда (например, "Суп"),
     // значение — список названий блюд этого типа
-    Random random = new Random(); //этот вспомогательный класс поможет сделать произвольные сочетания блюд
+    final Random random = new Random(); //этот вспомогательный класс поможет сделать произвольные сочетания блюд
 
     //в этом методе мы добавляем компонент в подборку
     public void addNewDish(String dishType/*Тип блюда*/, String dishName/*Название блюда*/) {

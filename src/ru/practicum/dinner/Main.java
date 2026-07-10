@@ -14,28 +14,30 @@ public class Main {
 
         while (true) {
             printMenu();
-            String command = scanner.nextLine();
+            String command = scanner.nextLine().trim().toUpperCase();
+            ListCommand listCommand = ListCommand.valueOf(command);
 
-            switch (command) {
-                case "1":
-                    addNewDish();
-                    break;
-                case "2":
-                    generateDishCombo();
-                    break;
-                case "3":
+            /*
+            * Реализация enum скорее всего неправильная!
+            * Использовать цифровые команды не получилось.
+            * Заменил команды.
+            */
+            switch (listCommand) {
+                case ADD -> addNewDish();
+                case GEN -> generateDishCombo();
+                case EXIT -> {
                     return;
-                default:
-                    System.out.println("Incorrect input!!!");
+                }
+                default -> System.out.println("Incorrect input!!!");
             }
         }
     }
 
     private static void printMenu() {
         System.out.println("Выберите команду:");
-        System.out.println("1 - Добавить новое блюдо");
-        System.out.println("2 - Сгенерировать комбинации блюд");
-        System.out.println("3 - Выход");
+        System.out.println("1 - Добавить новое блюдо (команда - add)");
+        System.out.println("2 - Сгенерировать комбинации блюд (команда - gen)");
+        System.out.println("3 - Выход (команда - exit)");
     }
 
     private static void addNewDish() {
